@@ -1,0 +1,24 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: postgres
+  password: postgres
+
+development:
+  <<: *default
+  database: postgres
+  username: postgres
+  password: postgres
+  host: localhost
+
+test:
+  <<: *default
+  database: rails_dev
+
+production:
+  <<: *default
+  database: rails_dev
+  username: postgres
+  password: <%= ENV["AUTH_DATABASE_PASSWORD"] %>

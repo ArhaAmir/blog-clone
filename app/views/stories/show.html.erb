@@ -1,0 +1,14 @@
+</br>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end "><button me-md-2 type="button" class="btn btn-outline-info"><%= link_to "back to stories", stories_path %>
+</button></div>
+<div>
+<p style="color: green"><%= notice %></p>
+
+<%= render @story %>
+
+<button type="button" class="btn btn-outline-info">
+  <%= link_to "Edit this story", edit_story_path(@story) %> </button>
+  
+  <button type="button" class="btn btn-outline-danger"><%= link_to "Delete this story", @story, method: :delete %>
+</button>
+</div>
