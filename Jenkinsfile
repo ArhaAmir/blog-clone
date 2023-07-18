@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
+                echo 'checkout'
                 // Fetch code from a Git repository
                 git 'https://github.com/ArhaAmir/blog-clone.git'
             }
