@@ -14,6 +14,7 @@ pipeline {
                 script{
                     def scannerHome = tool name: 'sonarqube';
                     withSonarQubeEnv('code-analysis') {
+                    sh export SONAR_TOKEN="<squ_c06af7f5972d31f13e1184c7877db4561b27f461>"
                     sh "${scannerHome}/bin/sonar-scanner"
                     }
                 }
