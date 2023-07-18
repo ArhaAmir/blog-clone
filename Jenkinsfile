@@ -26,21 +26,4 @@ pipeline {
             }
         }
     }
-
-    post {
-        success {
-            // This block will be executed if the pipeline completes successfully
-            echo 'Pipeline completed successfully!'
-        }
-
-        failure {
-            // This block will be executed if the pipeline fails
-            echo 'Pipeline failed!'
-        }
-
-        always {
-            // This block will always be executed, regardless of pipeline success or failure
-            // You can perform cleanup tasks or notifications here
-        }
-    }
 }
