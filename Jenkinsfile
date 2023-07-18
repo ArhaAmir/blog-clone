@@ -13,7 +13,7 @@ pipeline {
             steps {
                 script{
                     //sh 'sonar-scanner -Dsonar.projectKey=blog-clone0 -Dsonar.sources=. -Dsonar.host.url=http://192.168.1.105:9000  -Dsonar.token=sqp_9b3c17ee03b8c9126897776e58f3636058beebc9'
-                     sh 'docker run --rm -v --network=host $PWD:/usr/src -w /usr/src sonarsource/sonar-scanner-cli sonar-scanner -Dsonar.projectKey=blog-clone0 -Dsonar.sources=. -Dsonar.host.url=http://192.168.100.23:9000 -Dsonar.login=sqp_9b3c17ee03b8c9126897776e58f3636058beebc9'
+                     sh 'docker run --network=host -e --rm -v $PWD:/usr/src -w /usr/src sonarsource/sonar-scanner-cli sonar-scanner -Dsonar.projectKey=blog-clone0 -Dsonar.sources=. -Dsonar.host.url=http://192.168.100.23:9000 -Dsonar.login=sqp_9b3c17ee03b8c9126897776e58f3636058beebc9'
                   //sh 'sonar-scanner -Dsonar.projectKey=blog-clone -Dsonar.sources=. -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_a8aab4c0d684a1cc0dcf76d2b2f9ab6a57286d57'
                     }
                 }
