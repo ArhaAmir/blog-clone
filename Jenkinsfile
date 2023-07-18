@@ -12,10 +12,7 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 script{
-                    def scannerHome = tool name: 'sonarqube';
-                    withSonarQubeEnv('code-analysis') {
-                    sh export SONAR_TOKEN="<squ_c06af7f5972d31f13e1184c7877db4561b27f461>"
-                    sh "${scannerHome}/bin/sonar-scanner"
+                  sh 'sonar-scanner -Dsonar.projectKey=blog-clone -Dsonar.sources=. -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_a8aab4c0d684a1cc0dcf76d2b2f9ab6a57286d57'
                     }
                 }
             }
