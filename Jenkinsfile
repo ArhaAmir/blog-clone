@@ -22,8 +22,7 @@ pipeline {
             steps {
                 // Assuming you have a web server where you want to deploy the built code
                 // Replace 'your_server' and 'your_web_root' with appropriate values
-                sh 'rails s'
-                sh 'rsync -avz --delete your_local_build_folder/ your_server:your_web_root/'
+                echo 'deploying'
             }
         }
     }
