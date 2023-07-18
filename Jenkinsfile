@@ -12,10 +12,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                script {
-dockerImage = docker.build registry + ":$BUILD_NUMBER"
-}
-                //sh 'docker build -t blog-clone-image:latest .'
+                sh 'docker build -t blog-clone-image:latest .'
                 // Assuming your build steps, e.g., compiling code, running tests, etc.
                 // Replace this with actual build commands for your project
                 //sh 'your_build_command_here'
@@ -25,12 +22,12 @@ dockerImage = docker.build registry + ":$BUILD_NUMBER"
 
         stage('Deploy') {
             steps {
+                sh 'docker push arhaamir/blog-clone-image:latest'
+                echo 'Pushing to DockerHub'
                 // Assuming you have a web server where you want to deploy the built code
                 // Replace 'your_server' and 'your_web_root' with appropriate values
                 echo 'deploying'
-                script {
-docker.withRegistry( '', registryCredential ) {
-dockerImage.push()
+               
 }
             }
         }
