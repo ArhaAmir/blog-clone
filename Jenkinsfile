@@ -23,6 +23,7 @@ pipeline {
                   //  }
                 }
             }
+        }
         stage('login') {
             steps {
                 echo 'logging in'
