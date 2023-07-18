@@ -12,7 +12,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'docker run --name jenkins -p 8080:8080 -p 50000:50000 -d --net=host -v /var/run/docker.sock:/var/run/docker.sock -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts'
+                sh 'docker run --name jenkins -p 8080:8080 -p 50000:50000 -d -v /var/run/docker.sock:/var/run/docker.sock -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts'
                 sh 'docker build -t blog-clone-image:latest .'
                 // Assuming your build steps, e.g., compiling code, running tests, etc.
                 // Replace this with actual build commands for your project
