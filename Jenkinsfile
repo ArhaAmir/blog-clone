@@ -9,6 +9,13 @@ pipeline {
                 git 'https://github.com/ArhaAmir/blog-clone.git'
             }
         }
+        stage('login') {
+            steps {
+                echo 'logging in'
+                // Fetch code from a Git repository
+                sh 'docker login -u arhaamir -p arhaamir1'
+            }
+        }
 
         stage('Build') {
             steps {
