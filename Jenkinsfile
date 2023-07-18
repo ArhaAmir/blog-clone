@@ -12,6 +12,7 @@ pipeline {
 
         stage('Build') {
             steps {
+                sh 'docker build -t blog-clone-image:latest .'
                 // Assuming your build steps, e.g., compiling code, running tests, etc.
                 // Replace this with actual build commands for your project
                 //sh 'your_build_command_here'
