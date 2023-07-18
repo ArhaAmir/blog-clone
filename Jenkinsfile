@@ -9,10 +9,18 @@ pipeline {
                 git 'https://github.com/ArhaAmir/blog-clone.git'
             }
         }
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('code-analysis') {
+                    // Run SonarQube scanner to analyze the code
+                    sh 'sonar-scanner'
+                }
+            }
+        }
         stage('login') {
             steps {
                 echo 'logging in'
-                // Fetch code from a Git repository
+                // Login in docker hub
                 sh 'docker login -u arhaamir -p arhaamir1'
             }
         }
