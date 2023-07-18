@@ -12,7 +12,7 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 script{
-                    sh docker pull sonarsource/sonar-scanner-cli:latest
+                    sh 'docker pull sonarsource/sonar-scanner-cli:latest'
                      sh 'docker run --rm -v $PWD:/usr/src -w /usr/src sonarsource/sonar-scanner-cli sonar-scanner -Dsonar.projectKey=blog-clone -Dsonar.sources=. -Dsonar.host.url=http://localhost:9000 -Dsonar.login=sqp_a8aab4c0d684a1cc0dcf76d2b2f9ab6a57286d57'
                   //sh 'sonar-scanner -Dsonar.projectKey=blog-clone -Dsonar.sources=. -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_a8aab4c0d684a1cc0dcf76d2b2f9ab6a57286d57'
                     }
