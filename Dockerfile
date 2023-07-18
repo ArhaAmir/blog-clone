@@ -1,5 +1,5 @@
 # Use the official Ruby image as the base image
-FROM ruby:2.7.4
+FROM ruby:3.2.2
 
 # Install system dependencies
 RUN apt-get update -qq && apt-get install -y nodejs npm
