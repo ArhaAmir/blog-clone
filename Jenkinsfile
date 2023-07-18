@@ -27,8 +27,6 @@ pipeline {
                 // Assuming you have a web server where you want to deploy the built code
                 // Replace 'your_server' and 'your_web_root' with appropriate values
                 echo 'deploying'
-               
-}
             }
         }
     }
