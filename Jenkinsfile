@@ -1,6 +1,7 @@
 pipeline {
     agent any
-    tool name: 'sonar_zip', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+    tools {SonarQube Scanner "sonar_zip"}
+    //tool name: 'sonar_zip', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
 
     stages {
         stage('Checkout') {
