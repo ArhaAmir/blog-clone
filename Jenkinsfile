@@ -11,7 +11,7 @@ pipeline {
         }
         stage('SonarQube Analysis') {
             steps {
-              withSonarQubeEnv('My SonarQube Server') {
+              withSonarQubeEnv('project') {
                 sh 'mvn clean package sonar:project'
                     timeout(time: 1, unit: 'HOURS') {
                 waitForQualityGate abortPipeline: true
