@@ -12,6 +12,7 @@ pipeline {
          stage('SonarQube Analysis') {
             steps {
                 sh 'pwd'
+                sh 'which sonar-scanner'
                 sh '/sonar-scanner-4.2.0.1873-linux/bin/sonar-scanner  -Dsonar.projectKey=project -Dsonar.sources=. -Dsonar.host.url=http://172.17.0.2:9000 -Dsonar.login=sqp_3bc9819d208d136d55a9433c2f8a1d4dd26c0019'
             }
         }
