@@ -9,6 +9,12 @@ pipeline {
                 git 'https://github.com/ArhaAmir/blog-clone.git'
             }
         }
+         stage('SonarQube Analysis') {
+            steps {
+                sh '/sonar-scanner-4.2.0.1873-linux/bin/sonar-scanner --Dsonar.projectKey=project -Dsonar.sources=.  -Dsonar.host.url=http://10.0.10.55:9000 -Dsonar.token=sqp_3bc9819d208d136d55a9433c2f8a1d4dd26c0019'
+                
+            }
+        }
         stage ('SonarQube Analysis') {
             steps{
              script{
