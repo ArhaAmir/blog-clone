@@ -12,6 +12,7 @@ pipeline {
         stage ('SonarQube Analysis') {
             steps{
              script{
+                 def scannerHome = tool 'SonarQubeScanner' // Make sure this matches the tool name you specified in Jenkins configuration
                  sh 'sonar-scanner -Dsonar.projectKey=project -Dsonar.sources=. -Dsonar.host.url=http://10.0.10.55:9000 -Dsonar.token=sqp_3bc9819d208d136d55a9433c2f8a1d4dd26c0019'
                     //sh 'sonar-scanner -Dsonar.projectKey=blog-clone0 -Dsonar.sources=. -Dsonar.host.url=http://192.168.1.105:9000  -Dsonar.token=sqp_9b3c17ee03b8c9126897776e58f3636058beebc9'
                 sh 'docker run --network=host -e --rm -v $PWD:/usr/src -w /usr/src sonarsource/sonar-scanner-cli sonar-scanner -Dsonar.projectKey=blog-clone0 -Dsonar.sources=. -Dsonar.host.url=http://10.0.10.55:9000 -Dsonar.login=sqp_9b3c17ee03b8c9126897776e58f3636058beebc9'
